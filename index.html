@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>12.5% calculator</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+    <body>
+        <section class="container">
+            <div>
+                <h1>Welcome to Your 12.5% Calculator</h1>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <h1>Total Outstanding <span id="outstandingAmount"></span></h1>
+            </div>
+            <div class="container">
+                <h2>Add Entry</h2>
+                <div class="form-div">
+                    <form class="form-style">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="date">Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input id="date" type="date" placeholder="yyyy-mm-dd">         
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="amount">Amount</label>
+                            </div>
+                            <div class="col-75">
+                                <input id="amount" type="number" placeholder="Enter amount">
+                            </div>
+                            <div class="col-75">
+                                <button id="addBtn" type="button">Add</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="source">Source</label>
+                            </div>
+                            <div class="col-75">
+                                <input id="source" type="text" placeholder="Enter source">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="app.js"></script>
+</html>
