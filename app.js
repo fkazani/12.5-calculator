@@ -2,10 +2,11 @@
 var dateEntered = document.getElementById("date"); // Reading the date value
 var amountInput = document.getElementById("amount"); // Reading amount input value and assigning to amountInput variable
 var sourceInput = document.getElementById("source"); // Reading source value 
-const element = document.getElementById("addBtn"); // Reading the button value and assining to element variable
 var outstandingAmount = 0; // Assigning an initial 0 value to the outstanding total
 document.getElementById("outstandingAmount").innerHTML = outstandingAmount;
-element.addEventListener("click", calcNewTotal); // Set the click handler to calcNewTotal function
+const element2 = document.getElementById("submit");
+element2.addEventListener("click", createNewEntryListElement);
+element2.addEventListener("click", calcNewTotal);
 
 // Funtion to calculate and update the outstanding value amount
 function calcNewTotal () {
@@ -33,7 +34,7 @@ function createNewEntryListElement () {
     listEntry.appendChild(source);
     listEntry.appendChild(amountEntry);
 
-    // appending list entries to "entris" element
+    // appending list entries to "entries" element
     entriesList = document.getElementById("entries");
     entriesList.appendChild(listEntry);
 
