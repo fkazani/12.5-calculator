@@ -1,20 +1,23 @@
-// Global Variables 
-var dateEntered = document.getElementById("date"); // Reading the date value
-var amountInput = document.getElementById("amount"); // Reading amount input value and assigning to amountInput variable
-var sourceInput = document.getElementById("source"); // Reading source value 
-var outstandingAmount = 0; // Assigning an initial 0 value to the outstanding total
+
+
+const outstandingAmount = 0; // Assigning an initial 0 value to the outstanding total
 document.getElementById("outstandingAmount").innerHTML = outstandingAmount;
-const element2 = document.getElementById("submit");
-element2.addEventListener("click", createNewEntryListElement);
-element2.addEventListener("click", calcNewTotal);
+const element = document.getElementById("submit");
+element.addEventListener("click", createNewEntryListElement);
+element.addEventListener("click", calcNewTotal);
+
 
 // Funtion to calculate and update the outstanding value amount
 function calcNewTotal () {
-    var outstandingAmount = 0;
     var newAmount = +(amountInput.value) + outstandingAmount;
     outstandingAmount == newAmount;
     document.getElementById("outstandingAmount").innerHTML = newAmount;
 }
+
+// Variables to get the input field values
+var dateEntered = document.getElementById("date"); 
+var amountInput = document.getElementById("amount"); 
+var sourceInput = document.getElementById("source"); 
 
 // Function to create a new entry list item
 function createNewEntryListElement () {
