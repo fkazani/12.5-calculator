@@ -1,23 +1,22 @@
-
-
-const outstandingAmount = 0; // Assigning an initial 0 value to the outstanding total
-document.getElementById("outstandingAmount").innerHTML = outstandingAmount;
-const element = document.getElementById("submit");
-element.addEventListener("click", createNewEntryListElement);
-element.addEventListener("click", calcNewTotal);
-
-
-// Funtion to calculate and update the outstanding value amount
-function calcNewTotal () {
-    var newAmount = +(amountInput.value) + outstandingAmount;
-    outstandingAmount == newAmount;
-    document.getElementById("outstandingAmount").innerHTML = newAmount;
-}
+const outstandingTotal = document.getElementById("outstandingTotal");
+var count = 0;
+outstandingTotal.innerHTML = count;
 
 // Variables to get the input field values
 var dateEntered = document.getElementById("date"); 
 var amountInput = document.getElementById("amount"); 
 var sourceInput = document.getElementById("source"); 
+
+const element = document.getElementById("submit");
+element.addEventListener("click", createNewEntryListElement);
+element.addEventListener("click", calcNewTotal);
+
+// Funtion to calculate and update the outstanding value amount
+function calcNewTotal () {
+    var amount = +(amountInput.value);
+    count += amount;
+    outstandingTotal.innerHTML = count;
+}
 
 // Function to create a new entry list item
 function createNewEntryListElement () {
@@ -38,7 +37,7 @@ function createNewEntryListElement () {
     listEntry.appendChild(amountEntry);
 
     // appending list entries to "entries" element
-    entriesList = document.getElementById("entries");
+    const entriesList = document.getElementById("entries");
     entriesList.appendChild(listEntry);
 
     return listEntry;
