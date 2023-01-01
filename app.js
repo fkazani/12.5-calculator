@@ -1,3 +1,4 @@
+// Declaring variables to define the outstanding total counter
 const outstandingTotal = document.getElementById("outstandingTotal");
 var count = 0;
 outstandingTotal.innerHTML = count;
@@ -7,11 +8,12 @@ var dateEntered = document.getElementById("date");
 var amountInput = document.getElementById("amount"); 
 var sourceInput = document.getElementById("source"); 
 
-const element = document.getElementById("submit");
-element.addEventListener("click", createNewEntryListElement);
-element.addEventListener("click", calcNewTotal);
+// Declaring the button element vairiable and adding event listeners
+const submitBtn = document.getElementById("submit");
+submitBtn.addEventListener("click", createNewEntryListElement);
+submitBtn.addEventListener("click", calcNewTotal);
 
-// Funtion to calculate and update the outstanding value amount
+// Function to calculate and update the outstanding value amount
 function calcNewTotal () {
     var amount = +(amountInput.value);
     count += amount;
@@ -20,21 +22,49 @@ function calcNewTotal () {
 
 // Function to create a new entry list item
 function createNewEntryListElement () {
+    // Creating entries list element
     const listEntry = document.createElement("li"); 
+
+    // Creating date and date text node element
     const date = document.createElement("p"); 
     const dateNode = document.createTextNode(dateEntered.value);
+    
+    // Appending date text node to date p element
     date.appendChild(dateNode);
+
+    // Creating source p and text node elements
     const source = document.createElement("p"); 
     const sourceNode = document.createTextNode(sourceInput.value);
+    
+    // Appending source node to source p element
     source.appendChild(sourceNode);
+    
+    // Creating amount p element, text node element, assigning id to the element
     const amountEntry = document.createElement("p"); 
+    amountEntry.id = "enteredAmount";
     const amountNode = document.createTextNode(amountInput.value);
+    
+    // Appending amountEntry to amountNode element
     amountEntry.appendChild(amountNode);
+    
+    // Creating delete button element, assigning innertext, id and type to button element
+    const deleteEntry = document.createElement("button");
+    deleteEntry.innerText = "Delete";
+    deleteEntry.id = "deleteEntry"
+    deleteEntry.type = "button";
+    
+    // Add event listener to reduce the total amount when delete button is clicked
+    deleteEntry.addEventListener("click", function () {
+        var text = amountEntry.textContent;
+        count -= Number(text);
+        outstandingTotal.innerHTML = count;
+    });
 
     // each element needs appending
     listEntry.appendChild(date);
     listEntry.appendChild(source);
     listEntry.appendChild(amountEntry);
+    listEntry.appendChild(deleteEntry);
 
     // appending list entries to "entries" element
     const entriesList = document.getElementById("entries");
