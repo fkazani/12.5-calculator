@@ -29,6 +29,7 @@ body {
 .smaller-heading {
     font-size: 32px;
     font-weight: 30;
+    text-align: center;
 }
 
 hr {
