@@ -23,24 +23,24 @@ function calcNewTotal () {
 // Function to create a new entry list item
 function createNewEntryListElement () {
     // Creating entries list element
-    const listEntry = document.createElement("li"); 
+    const listEntry = document.createElement("tr"); 
 
     // Creating date and date text node element
-    const date = document.createElement("p"); 
+    const date = document.createElement("td"); 
     const dateNode = document.createTextNode(dateEntered.value);
     
     // Appending date text node to date p element
     date.appendChild(dateNode);
 
     // Creating source p and text node elements
-    const source = document.createElement("p"); 
+    const source = document.createElement("td"); 
     const sourceNode = document.createTextNode(sourceInput.value);
     
     // Appending source node to source p element
     source.appendChild(sourceNode);
     
     // Creating amount p element, text node element, assigning id to the element
-    const amountEntry = document.createElement("p"); 
+    const amountEntry = document.createElement("td"); 
     amountEntry.id = "enteredAmount";
     const amountNode = document.createTextNode(amountInput.value);
     
@@ -50,7 +50,7 @@ function createNewEntryListElement () {
     // Creating delete button element, assigning innertext, id and type to button element
     const deleteEntry = document.createElement("button");
     deleteEntry.innerText = "Delete";
-    deleteEntry.id = "deleteEntry"
+    deleteEntry.id = "deleteEntry";
     deleteEntry.type = "button";
     
     // Add event listener to reduce the total amount when delete button is clicked
@@ -66,10 +66,16 @@ function createNewEntryListElement () {
     listEntry.appendChild(amountEntry);
     listEntry.appendChild(deleteEntry);
 
-    // appending list entries to "entries" element
-    const entriesList = document.getElementById("entries");
+    // appending list entries to "entries-list" element
+    const entriesList = document.getElementById("entries-list");
     entriesList.appendChild(listEntry);
 
     return listEntry;
 }
+
+// Function to remove a list entry once delete button/icon is clicked
+// Pseudo function steps 
+// Find the table entry element to be deleted 
+// When the delete button event triggers, the element should be deleted from the table entry 
+
 

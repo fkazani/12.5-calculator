@@ -17,7 +17,7 @@
                 <h1 class="large-heading">Total Outstanding = <span id="outstandingTotal"></span></h1>
                 <hr>
             </div>
-            <div class="inner-container">
+            <div class="inner-container col-50-left">
                 <h2 class="smaller-heading">Add a new entry</h2>
                 <div class="form-div">
                     <form>
@@ -50,11 +50,20 @@
                         </div>
                     </form>
                 </div>
-                <div id="entries">
-                    <h3>Previous Entries</h3>
+            </section>
+            <section>
+                <div class="col-50-right">
+                    <h3 class="smaller-heading">Previous Entries</h3>
+                    <table id="entries-list">
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Source</th>
+                        </tr>
+                    </table>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </body>
     <script src="app.js"></script>
 </html>

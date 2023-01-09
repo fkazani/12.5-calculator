@@ -5,6 +5,8 @@ body {
     font-family: Lato, sans-serif;
 }
 
+/* Page Heafer */
+
 .header {
     background-color: #80727b;
     display: flex;
@@ -14,11 +16,13 @@ body {
     color: white;
     width: 100%;
     position: absolute; top: 0; left: 0;
-    height: 20px;
+    height: 10%;
     font-size: 25px;
-    padding: 70px 0;
+    padding: 10px 0;
     margin-bottom: 50px;
 }
+
+/* Pahe Headings */
 
 .large-heading {
     font-size: 40px;
@@ -32,6 +36,8 @@ body {
     text-align: center;
 }
 
+/* Section Divider */
+
 hr {
     position: relative;
     border: none;
@@ -40,6 +46,8 @@ hr {
     background: #d3d3d3;
     margin-bottom: 50px;
 }
+
+/* Section Containers */
 
 .container {
     display: block;
@@ -54,8 +62,10 @@ hr {
 }
 
 .section-padding {
-    padding-top: 200px;;
+    padding-top: 100px;;
 }
+
+/* Form Styling */
 
 .form-div {
     border-radius: 20px;
@@ -103,9 +113,68 @@ input[type=submit]:hover {
     align-items: center;
 }
 
+/* Entries List Table Styling */
+
+#entries-list {
+    list-style-type: none;
+    font-family: Lato, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#entries-list td, #customers th {
+    padding: 8px;
+  }
+
+/*
+#entries-list tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#entries-list tr:hover {
+    background-color: #ddd;
+}
+*/
+
+#entries-list th {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+td {
+    text-align: center;
+}
+
+#entries-list tr {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Responsive Styling */
+
 .col-25 {
     float: left;
     width: 25%;
+    margin-top: 6px;
+}
+
+.col-50-left {
+    float: left;
+    width: 40%;
+    padding-left: 100px;
+    padding-bottom: 50px;
+    margin-top: 6px;
+}
+
+.col-50-right {
+    float: right;
+    width: 40%;
+    padding-right: 100px;
+    padding-bottom: 50px;
     margin-top: 6px;
 }
   
