@@ -154,6 +154,12 @@ td {
     font-weight: 400;
 }
 
+/* Removing underline from anchor tag */
+
+a {
+    text-decoration: none;
+}
+
 /* Responsive Styling */
 
 .col-25 {

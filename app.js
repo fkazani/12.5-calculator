@@ -48,10 +48,18 @@ function createNewEntryListElement () {
     amountEntry.appendChild(amountNode);
     
     // Creating delete button element, assigning innertext, id and type to button element
-    const deleteEntry = document.createElement("button");
-    deleteEntry.innerText = "Delete";
+    // const deleteEntry = document.createElement("button");
+    // deleteEntry.innerText = "Delete";
+    // deleteEntry.id = "deleteEntry";
+    // deleteEntry.type = "button";
+
+    const deleteEntry = document.createElement("a");
+    deleteEntry.href = "#";
+    deleteEntry.classList.add("fa");
+    deleteEntry.classList.add("fa-times");
     deleteEntry.id = "deleteEntry";
-    deleteEntry.type = "button";
+    deleteEntry.style.color = "red";
+    deleteEntry.style.fontSize = "20px";
     
     // Add event listener to reduce the total amount when delete button is clicked
     deleteEntry.addEventListener("click", function () {
