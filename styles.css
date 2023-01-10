@@ -160,6 +160,17 @@ a {
     text-decoration: none;
 }
 
+/* Making the entries list scrollable */
+
+div.scroll {
+    margin:4px, 4px;
+    padding:4px;
+    width: 500px;
+    height: 330px;
+    overflow: auto;
+    text-align:justify;
+}
+
 /* Responsive Styling */
 
 .col-25 {
