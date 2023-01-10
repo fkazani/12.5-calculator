@@ -48,11 +48,6 @@ function createNewEntryListElement () {
     amountEntry.appendChild(amountNode);
     
     // Creating delete button element, assigning innertext, id and type to button element
-    // const deleteEntry = document.createElement("button");
-    // deleteEntry.innerText = "Delete";
-    // deleteEntry.id = "deleteEntry";
-    // deleteEntry.type = "button";
-
     const deleteEntry = document.createElement("a");
     deleteEntry.href = "#";
     deleteEntry.classList.add("fa");
