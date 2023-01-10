@@ -48,6 +48,7 @@ function createNewEntryListElement () {
     amountEntry.appendChild(amountNode);
     
     // Creating delete button element, assigning innertext, id and type to button element
+    const deleteEntryRow = document.createElement("td");
     const deleteEntry = document.createElement("a");
     deleteEntry.href = "#";
     deleteEntry.classList.add("fa");
@@ -55,19 +56,21 @@ function createNewEntryListElement () {
     deleteEntry.id = "deleteEntry";
     deleteEntry.style.color = "red";
     deleteEntry.style.fontSize = "20px";
+    deleteEntryRow.appendChild(deleteEntry);
     
     // Add event listener to reduce the total amount when delete button is clicked
     deleteEntry.addEventListener("click", function () {
         var text = amountEntry.textContent;
         count -= Number(text);
         outstandingTotal.innerHTML = count;
+        deleteRow(this);
     });
 
     // each element needs appending
     listEntry.appendChild(date);
     listEntry.appendChild(source);
     listEntry.appendChild(amountEntry);
-    listEntry.appendChild(deleteEntry);
+    listEntry.appendChild(deleteEntryRow);
 
     // appending list entries to "entries-list" element
     const entriesList = document.getElementById("entries-list");
@@ -77,8 +80,7 @@ function createNewEntryListElement () {
 }
 
 // Function to remove a list entry once delete button/icon is clicked
-// Pseudo function steps 
-// Find the table entry element to be deleted 
-// When the delete button event triggers, the element should be deleted from the table entry 
-
-
+function deleteRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("entries-list").deleteRow(i);
+}
