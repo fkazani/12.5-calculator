@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+  }
 
 body {
     background: #fff;
@@ -17,7 +20,7 @@ body {
     width: 100%;
     position: absolute; top: 0; left: 0;
     height: 10%;
-    font-size: 25px;
+    font-size: 18px;
     padding: 10px 0;
     margin-bottom: 50px;
 }
@@ -25,13 +28,13 @@ body {
 /* Pahe Headings */
 
 .large-heading {
-    font-size: 40px;
+    font-size: 32px;
     text-align: center;
     font-weight: 400;
 }
 
 .smaller-heading {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 30;
     text-align: center;
 }
@@ -42,7 +45,7 @@ hr {
     position: relative;
     border: none;
     height: 2px;
-    width: 550px;
+    width: 50%;
     background: #d3d3d3;
     margin-bottom: 50px;
 }
@@ -51,7 +54,7 @@ hr {
 
 .container {
     display: block;
-    width: 800px;
+    width: 100%;
     margin: auto auto 0;
 }
 
@@ -62,7 +65,7 @@ hr {
 }
 
 .section-padding {
-    padding-top: 100px;;
+    padding-top: 130px;;
 }
 
 /* Form Styling */
@@ -165,41 +168,32 @@ a {
 div.scroll {
     margin:4px, 4px;
     padding:4px;
-    width: 500px;
     height: 330px;
     overflow: auto;
-    text-align:justify;
+    text-align: center;
 }
 
 /* Responsive Styling */
 
-.col-25 {
+[class*="col-"] {
     float: left;
-    width: 25%;
-    margin-top: 6px;
-}
+    padding: 15px;
+  }
 
-.col-50-left {
-    float: left;
-    width: 40%;
-    padding-left: 100px;
-    padding-bottom: 50px;
-    margin-top: 6px;
-}
+/* For desktop: */
 
-.col-50-right {
-    float: right;
-    width: 40%;
-    padding-right: 100px;
-    padding-bottom: 50px;
-    margin-top: 6px;
-}
-  
-.col-75 {
-    float: right;
-    width: 75%;
-    margin-top: 6px;
-}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 
 .row:after {
     content: "";
@@ -213,13 +207,19 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .col-25, .col-75, input[type=submit] {
-      width: 100%;
+      width: 10%;
       margin-top: 0;
     }
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
 
 
 
