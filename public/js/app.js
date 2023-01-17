@@ -7,23 +7,22 @@ outstandingTotal.innerHTML = count;
 var dateEntered = document.getElementById("date"); 
 var amountInput = document.getElementById("amount"); 
 var sourceInput = document.getElementById("source"); 
+var settleAmount = document.getElementById("settleup");
 
-// Declaring the button element vairiable and adding event listeners
+// Declaring the button element vairiable for submit button and adding event listeners
 const submitBtn = document.getElementById("submit");
 submitBtn.addEventListener("click", createNewEntryListElement);
 submitBtn.addEventListener("click", calcNewTotal);
 
+// Declaring the button element variable for settle balance and adding event listener
+const settleBtn = document.getElementById("settle");
+settleBtn.addEventListener("click", settleBalance);
+
 // Function to calculate and update the outstanding value amount
 function calcNewTotal () {
     var amount = +(amountInput.value);
-    if (amount >= 0) {
-        count += (amount*0.125);
-        outstandingTotal.innerHTML = count;
-    } else {
-        count -= -amount;
-        outstandingTotal.innerHTML = count;
-    }
-    
+    count += (amount*0.125);
+    outstandingTotal.innerHTML = count;
 }
 
 // Function to create a new entry list item
@@ -75,16 +74,9 @@ function createNewEntryListElement () {
     // Add event listener to reduce the total amount when delete button is clicked
     deleteEntry.addEventListener("click", function () {
         var text = calcAmount.textContent;
-        if (text >= 0) {
-            count -= Number(text);
-            outstandingTotal.innerHTML = count;
-            deleteRow(this);
-        } else {
-            count -= (Number(text))*-1;
-            outstandingTotal.innerHTML = count;
-            deleteRow(this);
-        }
-        
+        count -= Number(text);
+        outstandingTotal.innerHTML = count;
+        deleteRow(this);
     });
 
     // each element needs appending
@@ -105,4 +97,10 @@ function createNewEntryListElement () {
 function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
     document.getElementById("entries-list").deleteRow(i);
+}
+
+// Funtion to settle balances and reduce the outstanding total amount
+function settleBalance () {
+    count -= Number(settleAmount.value);
+    outstandingTotal.innerHTML = count;
 }
