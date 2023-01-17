@@ -16,8 +16,14 @@ submitBtn.addEventListener("click", calcNewTotal);
 // Function to calculate and update the outstanding value amount
 function calcNewTotal () {
     var amount = +(amountInput.value);
-    count += (amount*0.125);
-    outstandingTotal.innerHTML = count;
+    if (amount >= 0) {
+        count += (amount*0.125);
+        outstandingTotal.innerHTML = count;
+    } else {
+        count -= -amount;
+        outstandingTotal.innerHTML = count;
+    }
+    
 }
 
 // Function to create a new entry list item
@@ -69,9 +75,16 @@ function createNewEntryListElement () {
     // Add event listener to reduce the total amount when delete button is clicked
     deleteEntry.addEventListener("click", function () {
         var text = calcAmount.textContent;
-        count -= Number(text);
-        outstandingTotal.innerHTML = count;
-        deleteRow(this);
+        if (text >= 0) {
+            count -= Number(text);
+            outstandingTotal.innerHTML = count;
+            deleteRow(this);
+        } else {
+            count -= (Number(text))*-1;
+            outstandingTotal.innerHTML = count;
+            deleteRow(this);
+        }
+        
     });
 
     // each element needs appending
