@@ -16,7 +16,7 @@ submitBtn.addEventListener("click", calcNewTotal);
 // Function to calculate and update the outstanding value amount
 function calcNewTotal () {
     var amount = +(amountInput.value);
-    count += amount;
+    count += (amount*0.125);
     outstandingTotal.innerHTML = count;
 }
 
@@ -39,13 +39,21 @@ function createNewEntryListElement () {
     // Appending source node to source p element
     source.appendChild(sourceNode);
     
-    // Creating amount p element, text node element, assigning id to the element
+    // Creating entry amount p element, text node element, assigning id to the element
     const amountEntry = document.createElement("td"); 
     amountEntry.id = "enteredAmount";
     const amountNode = document.createTextNode(amountInput.value);
+
+    // Creating amount p element, text node element, assigning id to the element
+    const calcAmount = document.createElement("td"); 
+    calcAmount.id = "calcAmount";
+    const calcAmountNode = document.createTextNode(amountInput.value*0.125);
     
     // Appending amountEntry to amountNode element
     amountEntry.appendChild(amountNode);
+
+    // Appending calcAmount to calcAmountNode element
+    calcAmount.appendChild(calcAmountNode);
     
     // Creating delete button element, assigning innertext, id and type to button element
     const deleteEntryRow = document.createElement("td");
@@ -60,7 +68,7 @@ function createNewEntryListElement () {
     
     // Add event listener to reduce the total amount when delete button is clicked
     deleteEntry.addEventListener("click", function () {
-        var text = amountEntry.textContent;
+        var text = calcAmount.textContent;
         count -= Number(text);
         outstandingTotal.innerHTML = count;
         deleteRow(this);
@@ -70,6 +78,7 @@ function createNewEntryListElement () {
     listEntry.appendChild(date);
     listEntry.appendChild(source);
     listEntry.appendChild(amountEntry);
+    listEntry.appendChild(calcAmount);
     listEntry.appendChild(deleteEntryRow);
 
     // appending list entries to "entries-list" element
