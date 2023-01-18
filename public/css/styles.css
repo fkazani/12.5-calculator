@@ -1,3 +1,5 @@
+/* Global Styles */
+
 * {
     box-sizing: border-box;
   }
@@ -35,7 +37,13 @@ body {
 
 .smaller-heading {
     font-size: 28px;
-    font-weight: 30;
+    font-weight: 300;
+    text-align: center;
+}
+
+.settle-heading {
+    font-size: 30px;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -97,6 +105,34 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+/* Settle Balance Container */
+
+.settle-box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.settle-button {
+    font-family: Lato, sans-serif;
+    background-color: #32cd32;
+    color: #fff;
+    border-radius: 30px;
+    border-width: 0ch;
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bolder
+}
+
+.settle-button:hover {
+    background-color:#255957;
+    transition: 0.7s;
+}
+
+/* Submit Button Styling */
+
 .submit-button {
     font-family: Lato, sans-serif;
     margin-top: 20px;
@@ -109,6 +145,13 @@ input[type=submit]:hover {
     font-size: 24px;
     font-weight: bolder
 }
+
+.submit-button:hover {
+    background-color:#255957;
+    transition: 0.7s;
+}
+
+/* Horizontal and Vertically Center */
 
 .center {
     display: flex;

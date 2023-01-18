@@ -17,6 +17,7 @@ submitBtn.addEventListener("click", calcNewTotal);
 // Declaring the button element variable for settle balance and adding event listener
 const settleBtn = document.getElementById("settle");
 settleBtn.addEventListener("click", settleBalance);
+settleBtn.addEventListener("click", createSettleEntry);
 
 // Function to calculate and update the outstanding value amount
 function calcNewTotal () {
@@ -85,6 +86,53 @@ function createNewEntryListElement () {
     listEntry.appendChild(amountEntry);
     listEntry.appendChild(calcAmount);
     listEntry.appendChild(deleteEntryRow);
+
+    // appending list entries to "entries-list" element
+    const entriesList = document.getElementById("entries-list");
+    entriesList.appendChild(listEntry);
+
+    return listEntry;
+}
+
+// Function to create a new entry record for settling balance
+function createSettleEntry () {
+    // Creating entries list element
+    const listEntry = document.createElement("tr"); 
+
+    // Defining current date
+    const nowDate = new Date().toJSON().slice(0, 10);
+
+    // let year = nowDate.getFullYear();
+    // let month = nowDate.getMonth()+1;
+    // let day = nowDate.getDate();
+    // let currentDate = `${year}-${month}-${day}`;
+
+    // Creating date and date text node element
+    const date = document.createElement("td"); 
+    const dateNode = document.createTextNode(nowDate);
+
+    // Appending date text node to date p element
+    date.appendChild(dateNode);
+
+    // Creating source p and text node elements
+    const source = document.createElement("td"); 
+    const sourceNode = document.createTextNode("Balance Settled");
+    
+    // Appending source node to source p element
+    source.appendChild(sourceNode);
+
+    // Creating amount p element, text node element, assigning id to the element
+    const settleAmountElement = document.createElement("td"); 
+    settleAmountElement.id = "settleAmount";
+    const settleAmountNode = document.createTextNode(settleAmount.value);
+    
+    // Appending amountEntry to amountNode element
+    settleAmountElement.appendChild(settleAmountNode);
+
+    // each element needs appending
+    listEntry.appendChild(date);
+    listEntry.appendChild(source);
+    listEntry.appendChild(settleAmountElement);
 
     // appending list entries to "entries-list" element
     const entriesList = document.getElementById("entries-list");

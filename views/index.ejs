@@ -18,9 +18,17 @@
         </section>
         <div class="container section-padding">
             <h1 class="large-heading">Total Outstanding = <span id="outstandingTotal"></span></h1>
-            <h2>Settle Up</h2>
-            <input id="settleup" type="number" placeholder="Enter Amount to Settle">
-            <button id="settle" type="button">Settle</button>
+            <div class="settle-box">
+                <div style="flex-basis: 100px;" class="col-2">
+                    <h2 class="settle-heading">Settle Balance</h2>
+                </div>
+                <div style="flex-basis: 300px;" class="col-8">
+                    <input id="settleup" type="number" placeholder="Enter Amount to Settle">
+                </div>
+                <div style="flex-basis: 200px;" class="col-2">
+                    <button class="settle-button" id="settle" type="button">Settle</button>
+                </div>
+            </div>
             <hr>
         </div>
         <div class="row">
