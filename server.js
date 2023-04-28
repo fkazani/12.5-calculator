@@ -2,6 +2,7 @@
 import express from 'express';
 import mysql from 'mysql2';
 import { Sequelize } from 'sequelize';
+const { DataTypes } = Sequelize;
 const app = express();
 
 const sequelize = new Sequelize ('express', 'root', 'E00m$arch', {
@@ -10,20 +11,38 @@ const sequelize = new Sequelize ('express', 'root', 'E00m$arch', {
   dialectModule: mysql
 });
 
-// try {
-//   await sequelize.authenticate();
-//   console.log('Connection has been established successfully.');
-// } catch (error) {
-//   console.error('Unable to connect to the database:', error);
-// }
+const entries = sequelize.define('entries', {
+  entry_id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  date: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  source: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  enteredAmount: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: false
+  },
+  calculatedAmount: {
+    type: DataTypes.DECIMAL(10, 2)
+  }
+}, 
+{
+  freezeTableName: true
+});
 
-// Configuration
-// const pool = mysql.createConnection({
-//   host     : '127.0.0.1',
-//   user     : 'root',
-//   password : 'E00md3sign',
-//   database : 'express'
-// });
+entries.sync({ alter: true }).then((data) => {
+  // Working with our updated table
+  console.log("Table and model synced successfully");
+}).catch((err) => {
+  console.log("Error syncing the table and model");
+})
 
 // App to use the render files under public folder
 app.use(express.static('public'));
