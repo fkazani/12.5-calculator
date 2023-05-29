@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { Sequelize } from 'sequelize';
-import entries from './models/entries.js';
+import entries from './models/entries.model.js';
 import db from './models/index.js';
 // import router from './routes/entries.js';
 
@@ -33,6 +33,13 @@ app.set('view engine', 'ejs');
 app.get("/", (req, res) => {
     res.render("index");
 })
+
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("db synced");
+}).catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+});
+
 
 // Setting up port 3000 to listen the request
 app.listen(3000);

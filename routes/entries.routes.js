@@ -1,7 +1,17 @@
 // Import the necessary modules
-// import express from 'express';
-// import bodyParser from 'body-parser';
-// import entries from '../models/entries.model.js';
+import entries from "../controllers/entries.controller.js";
+import express from "express";
+
+const entriesRoutes = app => {
+    const router = express.Router();
+
+    // Create a new entry
+    router.post("/", entries.create);
+
+    app.use('/api/entries', router);
+};
+
+export default entriesRoutes;
 
 // // Creating a router variable
 // const router = express.Router();
